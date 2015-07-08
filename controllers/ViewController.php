@@ -78,6 +78,8 @@ class ViewController extends Controller
             $this->redirect($page->content);
         } elseif ($page->type == CustomPage::TYPE_MARKDOWN) {
             $this->render('markdown', array('md' => $page->content, 'navigationClass' => $page->navigation_class));
+        } elseif ($page->type == CustomPage::TYPE_PHP) {
+            $this->render('php', array('php' => $page->content));
         } else {
             throw new CHttpException('500', 'Invalid page type!');
         }
